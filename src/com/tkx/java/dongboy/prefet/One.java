@@ -16,10 +16,9 @@ public class One {
         List<int[]> list = new ArrayList<>();
         for (int x = 1; x <= t; x++) {
             int n = scanner.nextInt();
-            scanner.nextLine();
-            int[] res = new int[2];
+            int[] res = new int[2]; // 当前结果
             int[] nums = new int[n];
-            for(int i = 0;  i < n; i++){
+            for(int i = 0; i < n; i++){
                 nums[i] = scanner.nextInt();
             }
             int left = 0, right = 0;
