@@ -1,11 +1,9 @@
-package com.tkx.java.秋招笔试题.字节跳动;
+package com.tkx.java.秋招笔试题.byteDance;
 
 import java.util.*;
 
 /**
- * @Description: TODO
- * @author: scott
- * @date: 2022年08月28日 11:21
+ *  算法思想:滑动窗口的最小值
  */
 public class T4 {
     public static void main(String[] args) {
