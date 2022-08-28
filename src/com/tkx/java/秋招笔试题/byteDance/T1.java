@@ -1,14 +1,10 @@
-package com.tkx.java.秋招笔试题.字节跳动;
+package com.tkx.java.秋招笔试题.byteDance;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Description: TODO
- * @author: scott
- * @date: 2022年08月28日 10:30
+ *
  */
 public class T1 {
     public static void main(String[] args) {
@@ -25,17 +21,20 @@ public class T1 {
         }
         int[][] res = new int[n][2];
         HashMap<Integer,Integer> map = new HashMap<>();
-        map.put(1,0);
-        map.put(2,1);
-        map.put(4,2);
-        map.put(8,3);
-        map.put(16,4);
-        map.put(32,5);
-        map.put(64,6);
-        map.put(128,7);
-        map.put(256,8);
-        map.put(512,9);
-        map.put(1024,10);
+        // map.put(1,0);
+        // map.put(2,1);
+        // map.put(4,2);
+        // map.put(8,3);
+        // map.put(16,4);
+        // map.put(32,5);
+        // map.put(64,6);
+        // map.put(128,7);
+        // map.put(256,8);
+        // map.put(512,9);
+        // map.put(1024,10);
+        for(int i=0;i<=10;i++){
+            map.put((int)Math.pow(2,i),i);
+        }
         for (int i = 0; i < n; i++) {
             int start=0,end =0;
             int maxStart = 0,maxEnd = 0;

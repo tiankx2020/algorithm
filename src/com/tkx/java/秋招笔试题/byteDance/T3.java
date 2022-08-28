@@ -1,11 +1,9 @@
-package com.tkx.java.秋招笔试题.字节跳动;
+package com.tkx.java.秋招笔试题.byteDance;
 
 import java.util.Scanner;
 
 /**
- * @Description: TODO
- * @author: scott
- * @date: 2022年08月28日 10:34
+ * 算法思想：
  */
 public class T3 {
     public static void main(String[] args) {
