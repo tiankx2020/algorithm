@@ -21,17 +21,6 @@ public class T1 {
         }
         int[][] res = new int[n][2];
         HashMap<Integer,Integer> map = new HashMap<>();
-        // map.put(1,0);
-        // map.put(2,1);
-        // map.put(4,2);
-        // map.put(8,3);
-        // map.put(16,4);
-        // map.put(32,5);
-        // map.put(64,6);
-        // map.put(128,7);
-        // map.put(256,8);
-        // map.put(512,9);
-        // map.put(1024,10);
         for(int i=0;i<=10;i++){
             map.put((int)Math.pow(2,i),i);
         }
