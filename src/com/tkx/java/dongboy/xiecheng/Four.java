@@ -39,9 +39,26 @@ public class Four {
         // 找到index的位置后，修改它的值，使得最小
         if(index == 0 || index == n - 1){
             nums[index] = index == 0 ? nums[index + 1] : nums[n - 2];
+            System.out.println(method(nums));
         } else {
+            // 这里只看了左边的最大值
             nums[index] = (nums[index - 1] + nums[index + 1]) / 2;
+            // 考虑右边的最大值
+            index++;
+            int x1 = method(nums);
+            if(index == n - 1) {
+                nums[index] = nums[n - 2];
+            } else {
+                nums[index] = (nums[index - 1] + nums[index + 1]) / 2;
+            }
+            int x2 = method(nums);
+            System.out.println(Math.max(x1,x2));
         }
+    }
+
+    private static int method(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
         int[] res = new int[n];
         for (int i = 0; i < n; i++) {
             if (i - 1 >= 0) {
@@ -50,8 +67,10 @@ public class Four {
             if (i + 1 < n) {
                 res[i] = Math.max(res[i], Math.abs(nums[i] - nums[i + 1]));
             }
-            queue.offer(res[i]);
+            if(res[i] > ans){
+                ans = res[i];
+            }
         }
-        System.out.println(queue.poll());
+        return ans;
     }
 }
