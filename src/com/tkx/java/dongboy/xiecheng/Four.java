@@ -41,17 +41,19 @@ public class Four {
             System.out.println(method(nums));
         } else {
             // 这里只看了左边的最大值
+            int t = nums[index];
             nums[index] = (nums[index - 1] + nums[index + 1]) / 2;
-            // 考虑右边的最大值
-            index++;
             int x1 = method(nums);
+            // 考虑右边的最大值
+            nums[index] = t; // 还原
+            index++;
             if(index == n - 1) {
                 nums[index] = nums[n - 2];
             } else {
                 nums[index] = (nums[index - 1] + nums[index + 1]) / 2;
             }
             int x2 = method(nums);
-            System.out.println(Math.max(x1,x2));
+            System.out.println(Math.min(x1,x2));
         }
     }
     private static int method(int[] nums) {
