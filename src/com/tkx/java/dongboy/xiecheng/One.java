@@ -27,8 +27,8 @@ public class One {
                 } else {
                     char[] ch = cur.toCharArray();
                     char temp = ch[index];
-                    ch[index] = ch[q - 1];
-                    ch[q - 1] = temp;
+                    ch[index] = ch[ch.length - 1];
+                    ch[ch.length - 1] = temp;
                     nums[i] = Integer.parseInt(new String(ch));
                 }
             }
