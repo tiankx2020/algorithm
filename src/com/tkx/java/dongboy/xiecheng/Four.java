@@ -19,7 +19,6 @@ public class Four {
         int[] temp = new int[n]; //当前位置的最大绝对值
         int max = 0; // 最大平滑值
         int index = -1;
-        PriorityQueue<Integer> queue = new PriorityQueue<>((a, b) -> b - a);
         for (int i = 0; i < n; i++) {
             if (i - 1 >= 0) {
                 temp[i] = Math.max(temp[i], Math.abs(nums[i] - nums[i - 1]));
@@ -55,7 +54,6 @@ public class Four {
             System.out.println(Math.max(x1,x2));
         }
     }
-
     private static int method(int[] nums) {
         int n = nums.length;
         int ans = 0;
