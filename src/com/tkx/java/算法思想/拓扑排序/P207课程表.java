@@ -1,4 +1,4 @@
-package com.tkx.java.拓扑排序;
+package com.tkx.java.算法思想.拓扑排序;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

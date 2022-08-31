@@ -2,39 +2,37 @@ package com.tkx.java.leecodeHot100;
 
 import com.tkx.java.ListNode;
 
-/**
- * @Description: TODO
- * @author: scott
- * @date: 2022年05月13日 17:21
- */
+
 public class _2两数相加 {
+    /**
+     * 两数相加,利用递归的思想
+     * 1. 如果l1 == null && l2==null && add =0 表示计算结束了，直接返回null
+     * 否则
+     *         int num1 = l1 == null ? 0 : l1.val;
+     *         int num2 = l2 == null ? 0 : l2.val;
+     *         ListNode node = new ListNode((num1 + num2 + add) % 10);
+     *         add = (num1+num2+add)/10;
+     * 2.移动位置
+     *         if(l1!=null) l1 = l1.next;
+     *         if(l2!=null) l2 = l2.next;
+     *
+     * 3.返回结果
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int add = 0;
-        ListNode head = new ListNode(-1);
-        ListNode tail = head;
-        while (l1!=null && l2!=null){
-            int val = l1.val+l2.val+add;
-            add = val/10;
-            tail.next = new ListNode(val%10);
-            tail = tail.next;
-            l1 = l1.next;
-            l2 = l2.next;
+        return addTwoNumbers(l1,l2,0);
+    }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2, int add) {
+        if (l1 == null && l2 == null && add == 0) {
+            return null;
         }
-        while (l1!=null){
-            int val = l1.val+add;
-            add = val/10;
-            tail.next = new ListNode(val%10);
-            tail = tail.next;
-            l1 = l1.next;
-        }
-        while (l2!=null){
-            int val = l2.val+add;
-            add = val/10;
-            tail.next = new ListNode(val%10);
-            tail = tail.next;
-            l2 = l2.next;
-        }
-        if(add>0) tail.next = new ListNode(add);
-        return head.next;
+        int num1 = l1 == null ? 0 : l1.val;
+        int num2 = l2 == null ? 0 : l2.val;
+        ListNode node = new ListNode((num1 + num2 + add) % 10);
+        add = (num1+num2+add)/10;
+        if(l1!=null) l1 = l1.next;
+        if(l2!=null) l2 = l2.next;
+        node.next = addTwoNumbers(l1,l2,add);
+        return node;
     }
 }

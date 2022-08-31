@@ -17,33 +17,32 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date: 2022年05月16日 9:45
  */
 public class _3无重复字符的最长子串 {
-    // public int lengthOfLongestSubstring(String s) {
-    //     int start = -1, end = 0;
-    //     int ans = 0;
-    //     Map<Character, Integer> map = new HashMap<>();
-    //     for (; end < s.length(); end++) {
-    //         //判断和s[end]字符一样的最近下标i
-    //         int i = map.getOrDefault(s.charAt(end), -1);
-    //         //取 i和start的最大值
-    //         start = Math.max(start, i);
-    //         ans = Math.max(ans, end - start);
-    //         map.put(s.charAt(end), end);
-    //     }
-    //     return ans;
-    // }
+
     public static void main(String[] args) {
         String s = "abcabcbb";
         lengthOfLongestSubstring(s);
     }
-    //第二种解法
+    //第二种解法，滑动窗口
+
+    /**
+     * 什么时候进行滑动呢
+     * @param s
+     * @return
+     */
     public static int lengthOfLongestSubstring(String s) {
         if(s.length()==0) return 0;
-        int i=0,j=1;
-        int ans = 1;
-        for(;j<s.length();j++){
-            while (i!=j && s.charAt(i)==s.charAt(j)) i++;
-            ans = Math.max(ans,j-i+1);
+        Map<Character,Integer> map = new HashMap<>();
+        int max = 0;
+        int left =0;
+        for(int i=0;i<s.length();i++){
+            if(map.containsKey(s.charAt(i))){
+                left =Math.max(left,map.get(s.charAt(i))+1);
+            }
+            map.put(s.charAt(i),i);
         }
-        return ans;
+        return max;
+
     }
+
+
 }
