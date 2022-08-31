@@ -1,4 +1,4 @@
-package com.tkx.java.滑动窗口;
+package com.tkx.java.算法思想.滑动窗口;
 
 import java.util.*;
 
