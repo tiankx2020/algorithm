@@ -9,13 +9,12 @@ import java.util.Set;
  */
 public class One {
     static Set<Integer> set = new HashSet<>();
-
-    public int numColor(TreeNode root) {
+    public static int numColor(TreeNode root) {
         one(root);
         return set.size();
     }
 
-    public void one(TreeNode root) {
+    public static void one(TreeNode root) {
         if (root == null) {
             return;
         }
