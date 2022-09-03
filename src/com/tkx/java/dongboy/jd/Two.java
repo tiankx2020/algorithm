@@ -22,7 +22,7 @@ public class Two {
             if (isPrime(i)) { // 是否是质数
                 dp[i] = 1 + dp[1] + dp[i - 1];
             } else {
-                int a = (int) Math.floor(Math.sqrt(i));
+                int a = maxPri(i);
                 int b = i / a;
                 dp[i] = 1 + Math.min(dp[1] + dp[i - 1], dp[a] + dp[b]);
             }
@@ -32,6 +32,16 @@ public class Two {
             res = res + (long) dp[data];
         }
         System.out.println(res);
+    }
+
+    public static int maxPri(int n) {
+        int res;
+        for (res = n - 1; res > 0; res--) {
+            if (n % res == 0) {
+                break;
+            }
+        }
+        return res;
     }
 
     //是否是质数
