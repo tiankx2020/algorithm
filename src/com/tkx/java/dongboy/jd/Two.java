@@ -11,28 +11,29 @@ public class Two {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int[] nums = new int[n];
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             nums[i] = scanner.nextInt();
         }
         int[] dp = new int[100001]; // dp[i]表示i变为1需要的最少次数
         dp[1] = 0;
         dp[2] = 1;
         dp[3] = 2;
-        for(int i = 4; i <= 10000; i++){
-            if(isPrime(i)){ // 是否是质数
+        for (int i = 4; i <= 10000; i++) {
+            if (isPrime(i)) { // 是否是质数
                 dp[i] = 1 + dp[1] + dp[i - 1];
             } else {
                 int a = (int) Math.floor(Math.sqrt(i));
                 int b = i / a;
-                dp[i] = 1 + Math.min(dp[1] + dp[i - 1],dp[a] + dp[b]);
+                dp[i] = 1 + Math.min(dp[1] + dp[i - 1], dp[a] + dp[b]);
             }
         }
-        int res = 0;
-        for(int data : nums){
-            res += dp[data];
+        long res = 0;
+        for (int data : nums) {
+            res = res + (long) dp[data];
         }
         System.out.println(res);
     }
+
     //是否是质数
     public static boolean isPrime(int num) {
         if (num <= 1 || num > 2 && num % 2 == 0) {
