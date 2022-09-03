@@ -1,5 +1,7 @@
 package com.tkx.java.dongboy.nine03;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -14,31 +16,36 @@ public class Two {
         int m = scanner.nextInt();
         String[] split = str.split(",");
         int n = split.length;
-        if(n < m){
+        if (n < m) {
             System.out.println(-1);
             return;
         }
         int[] task = new int[n];
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             task[i] = Integer.parseInt(split[i]);
-            queue.offer(task[i]);
         }
         int res = 0; // 结果
         int index = 0; // 下标
-        int count = 0; // 最大值的数量
-        while (m > 1 && index < n){
+        List<Integer> list = new ArrayList<>();
+        while (m > 1 && index < n) {
             // 找到一直递减的一个
             int cur = task[index]; // 当前
+            list.add(index);
             res += cur;
             m--;
-            while (index + 1 < n && cur >= task[index + 1]){ // 一直找到大于当前的数字
+            while (index + 1 < n && cur >= task[index + 1]) { // 一直找到大于当前的数字
                 index++;
             }
             index++;
         }
-        if(m > 0){
-            for(int i = 1;  i <= m; i++){
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for(int i = 0; i < n; i++){
+            if(!list.contains(i)){
+                queue.offer(task[i]);
+            }
+        }
+        if (m > 0) {
+            for (int i = 1; i <= m; i++) {
                 res += queue.poll();
             }
         }
