@@ -65,7 +65,7 @@ public class Test {
                         e.printStackTrace();
                     }
                 });
-                //每个工作提交后休眠500ms再提交下一个工作，用于保障提交程序11
+                //每个工作提交后休眠500ms再提交下一个工作，用于保障提交程序
                 Thread.sleep(500);
             }
         } catch (InterruptedException e) {
