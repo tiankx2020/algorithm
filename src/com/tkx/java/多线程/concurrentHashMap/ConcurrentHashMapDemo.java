@@ -1,4 +1,4 @@
-package com.tkx.java.多线程.conhashmap;
+package com.tkx.java.多线程.concurrentHashMap;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,5 +12,7 @@ public class ConcurrentHashMapDemo {
     public static void main(String[] args) {
         Map<Integer,Integer> map = new ConcurrentHashMap<>();
         map.put(1,1);
+        Integer integer = map.get(1);
+        System.out.println(integer);
     }
 }

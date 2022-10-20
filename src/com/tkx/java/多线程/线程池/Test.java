@@ -1,4 +1,4 @@
-package com.tkx.java.线程池;
+package com.tkx.java.多线程.线程池;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -16,30 +16,15 @@ public class Test {
      * @param args
      */
     public static void main(String[] args) {
-        // 创建线程池
-        // MyThreadPool pool = new MyThreadPool(2, (queue, task) -> {
-        //     queue.put(task);
-        // });
-        // // 执行任务
-        // pool.execute(()->{
-        //     System.out.println("执行任务1...");
-        // });
-        // pool.execute(()->{
-        //     System.out.println("执行任务2...");
-        // });
-        // pool.execute(()->{
-        //     System.out.println("执行任务3...");
-        // });
-
-        //外围线程数
+        // 核心线程数
         int corePoolSize = 3;
-        //最大线程数
+        // 最大线程数
         int maximumPoolSize = 6;
-        //超过 corePoolSize 线程数量的线程最大闲暇工夫
+        // 超过 corePoolSize 线程数量的线程最大闲暇工夫
         long keepAliveTime = 2;
-        //以秒为工夫单位
+        // 以秒为工夫单位
         TimeUnit unit = TimeUnit.SECONDS;
-        //创立工作队列，用于寄存提交的期待执行工作
+        // 创立工作队列，用于寄存提交的期待执行工作
         BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(2);
         ThreadPoolExecutor threadPoolExecutor = null;
         try {

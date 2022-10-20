@@ -22,6 +22,5 @@ public class CountDownLatchDemo {
         }
         cdl.await();
         System.out.println("我执行完了");
-
     }
 }
