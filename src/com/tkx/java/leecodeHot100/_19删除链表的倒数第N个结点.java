@@ -54,16 +54,31 @@ public class _19删除链表的倒数第N个结点 {
     //之后两个指针p,q一起走
     //如果q为空直接返回head.next;
     //否则当q.next时，删除要删除的结点，并返回head
+    // public ListNode removeNthFromEnd(ListNode head, int n) {
+    //     ListNode p = head, q = head;
+    //     while (n > 0) {
+    //         q = q.next;
+    //         n--;
+    //     }
+    //     if (q == null) return head.next;
+    //     while (q.next != null) {
+    //         p = p.next;
+    //         q = q.next;
+    //     }
+    //     p.next = p.next.next;
+    //     return head;
+    // }
+
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode p = head, q = head;
         while (n > 0) {
             q = q.next;
             n--;
         }
-        if (q == null) return head.next;
-        while (q.next != null) {
-            p = p.next;
-            q = q.next;
+        if (q == null) return head;
+        while (q.next!=null){
+            p=p.next;
+            q=q.next;
         }
         p.next = p.next.next;
         return head;

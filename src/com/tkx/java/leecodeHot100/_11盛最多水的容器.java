@@ -5,16 +5,24 @@ package com.tkx.java.leecodeHot100;
  * @author: scott
  * @date: 2022年05月16日 14:12
  */
-public class _10盛最多水的容器 {
+public class _11盛最多水的容器 {
     public int maxArea(int[] height) {
-        int i = 0, j = height.length - 1;
-        int ans = 0;
+        // int i = 0, j = height.length - 1;
+        // int ans = 0;
+        // while (i<j){
+        //     ans = Math.max(ans,(j-i)*Math.min(height[i],height[j]));
+        //     if(height[i]<=height[j]) i++;
+        //     else j--;
+        // }
+        // return ans;
+        int res = 0;
+        int i =0,j=height.length-1;
         while (i<j){
-            ans = Math.max(ans,(j-i)*Math.min(height[i],height[j]));
+            res = Math.max(Math.min(height[i],height[j])*(j-i),res);
             if(height[i]<=height[j]) i++;
             else j--;
         }
-        return ans;
+        return res;
     }
     /**
      * 思路：刚开始 i指向左边，j指向右边。容纳的水量L= (j-i)*Math.min(height[i],height[j]);

@@ -25,7 +25,7 @@ public class Test {
         // 以秒为工夫单位
         TimeUnit unit = TimeUnit.SECONDS;
         // 创立工作队列，用于寄存提交的期待执行工作
-        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(2);
+        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(2);
         ThreadPoolExecutor threadPoolExecutor = null;
         try {
             //创立线程池

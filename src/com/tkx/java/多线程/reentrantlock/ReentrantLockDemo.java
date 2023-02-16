@@ -1,6 +1,7 @@
 package com.tkx.java.多线程.reentrantlock;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -11,7 +12,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockDemo {
     public static void main(String[] args) {
         ReentrantLock lock = new ReentrantLock();
+        Condition c1 = lock.newCondition();
         lock.lock();
+        try {
 
+        }catch (Exception e){
+
+        }finally {
+            lock.unlock();
+        }
     }
 }

@@ -11,27 +11,49 @@ import java.util.List;
  * 回溯思想:每个数字都对应着多种可能，当一种可能取往后，需要恢复到未取的状态
  */
 public class _17电话号码组合 {
-    String[] s= {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-    StringBuilder sb;
-    List<String> list;
+    // String[] s= {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    // StringBuilder sb;
+    // List<String> list;
+    // public List<String> letterCombinations(String digits) {
+    //     sb = new StringBuilder();
+    //     list = new ArrayList<>();
+    //     if(digits.length()==0) return list;
+    //     dfs(digits,0);
+    //     return list;
+    // }
+    //
+    // public void dfs(String digits,int index){
+    //     if(index==digits.length()){
+    //         list.add(sb.toString());
+    //         return;
+    //     }
+    //     char[] cs = s[digits.charAt(index)-'0'].toCharArray();
+    //     for (char c : cs) {
+    //         sb.append(c);
+    //         dfs(digits,index+1);
+    //         //回溯
+    //         sb.deleteCharAt(sb.length()-1);
+    //     }
+    // }
+    String[] words = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    List<String> res = new ArrayList<>();
+    StringBuilder sb = new StringBuilder();
     public List<String> letterCombinations(String digits) {
-        sb = new StringBuilder();
-        list = new ArrayList<>();
-        if(digits.length()==0) return list;
+        if(digits.isEmpty()) return res;
         dfs(digits,0);
-        return list;
+        return res;
     }
 
     public void dfs(String digits,int index){
         if(index==digits.length()){
-            list.add(sb.toString());
+            res.add(sb.toString());
             return;
         }
-        char[] cs = s[digits.charAt(index)-'0'].toCharArray();
+        char[] cs = words[digits.charAt(index) - '0'].toCharArray();
         for (char c : cs) {
+            // 回溯,只选择其中的一个
             sb.append(c);
             dfs(digits,index+1);
-            //回溯
             sb.deleteCharAt(sb.length()-1);
         }
     }
