@@ -7,7 +7,9 @@ public class _5最长回文子串 {
     public static void main(String[] args) {
         String s = "aaaa";
         _5最长回文子串 最长回文子串 = new _5最长回文子串();
-        最长回文子串.longestPalindrome(s);
+        String result = 最长回文子串.longestPalindrome(s);
+        System.out.println(result);
+
     }
 
     public String longestPalindrome(String s) {
